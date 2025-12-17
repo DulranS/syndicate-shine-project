@@ -66,7 +66,7 @@ const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden">
+    <section className="relative py-32 bg-black overflow-hidden" id="services">
       {/* Syndicate brand elements */}
       <div className="absolute inset-0">
         {/* Grid pattern */}

@@ -111,7 +111,7 @@ const PortfolioSection = () => {
     : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden">
+    <section className="relative py-32 bg-black overflow-hidden" id="portfolio">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]"></div>
