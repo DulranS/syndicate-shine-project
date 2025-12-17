@@ -41,7 +41,7 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: <Clock className="h-6 w-6" />,
-      label: "Book a 15-min consult",
+      label: "Book a 15-min consultation (free)",
       value: "Schedule a quick call",
       color: "#06B6D4",
       action: () => window.open("https://cal.com/syndicate-solutions/15min", "_blank"),
