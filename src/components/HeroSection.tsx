@@ -81,7 +81,7 @@ const HeroSection = () => {
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all group"
               >
-                <span>Start a project</span>
+                <span>Book a free call</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
               

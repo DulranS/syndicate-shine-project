@@ -150,7 +150,7 @@ const Footer = () => {
                 <h4 className="text-xl font-bold mb-2">Ready to execute?</h4>
                 <p className="text-gray-400 text-sm mb-6">Let's build something that works.</p>
                 <a href="#contact" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all group">
-                  <span>Start a project</span>
+                  <span>Book a free call</span>
                   <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
