@@ -1,210 +1,304 @@
-import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import ProjectGrid from "./ProjectGrid";
+import { useState } from "react";
+import { ArrowUpRight, ExternalLink, Code, Zap, ChevronRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const portfolioItems = [
   {
     id: 1,
     title: "SpeedLabs",
     link: "https://speedlabs.vercel.app/",
-    githubUrl: "https://github.com/yourusername/speedlabs",
-    description:
-      "Innovative platform showcasing cutting-edge technological solutions with advanced performance optimization and user-centric design.",
+    description: "High-performance tech platform with advanced optimization and user-centric design.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343110/speedlabs_kbkcnu.jpg",
-    tech: ["Next.js", "Resend", "Firebase", "Tailwind"],
-    category: "Web Development",
-    fullDescription:
-      "SpeedLabs is a comprehensive web platform designed to revolutionize technological solutions. Leveraging modern web technologies, it provides an intuitive interface for exploring and implementing cutting-edge innovations.",
+    tech: ["Next.js", "Firebase", "Tailwind", "Resend"],
+    category: "web",
+    color: "#00D9FF",
+    impact: "500+ Active Users"
   },
   {
     id: 2,
     title: "SparkShift",
     link: "https://sparkshift-final.vercel.app/",
-    githubUrl: "https://github.com/yourusername/sparkshift",
-    description:
-      "Sleek and professional website for SparkShift, a Social Media Marketing Agency (SMMA).",
+    description: "Professional SMMA platform with automated lead capture and seamless client onboarding.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343106/spark_u8z8lp.jpg",
-    tech: ["Next.js", "Resend", "Firebase", "Tailwind"],
-    category: "Web Development",
-    fullDescription:
-      "SparkShift is a modern and professional website for a Social Media Marketing Agency (SMMA). It features an automated contact form that streamlines client inquiries, making it easy for potential customers to connect with the agency effortlessly.",
+    tech: ["Next.js", "Firebase", "Tailwind", "Resend"],
+    category: "web",
+    color: "#A78BFA",
+    impact: "3x Lead Conversion"
   },
   {
     id: 3,
     title: "LankaMods",
     link: "https://lankamodslk.vercel.app/",
-    description:
-      "Premium marketplace for automotive modification parts with a seamless shopping experience.",
+    description: "Premium automotive marketplace with real-time cart system and WhatsApp integration.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343099/lankamod-hero_dyhfk4.png",
-    tech: ["Next.js", "Firebase", "Tailwind", "WhatsApp API"],
-    category: "Web Development",
-    fullDescription:
-      "LankaMods is a comprehensive e-commerce platform specializing in car modification parts. The site features detailed listings of modded cars alongside their individual components, with high-quality images for each part. The platform includes a responsive shopping cart system that temporarily stores user selections in-memory for the current session.",
+    tech: ["Next.js", "Firebase", "WhatsApp API", "Tailwind"],
+    category: "ecommerce",
+    color: "#FFB800",
+    impact: "Custom Parts Catalog"
   },
   {
     id: 4,
     title: "LankanArt",
     link: "https://lankaart.vercel.app",
-    description:
-      "A vibrant online marketplace for Sri Lankan artists to showcase and sell their artwork.",
+    description: "Vibrant artist marketplace connecting Sri Lankan creators with buyers worldwide.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343085/art_xf7zas.png",
-    tech: ["Next.js", "Firebase", "Tailwind", "Cloudinary", "Whatsapp API"],
-    category: "Web Development",
-    fullDescription:
-      "LankanArt is a vibrant online marketplace for Sri Lankan artists to showcase and sell their artwork. The platform features a user-friendly interface that allows artists to create profiles, upload their art, and manage their sales.",
+    tech: ["Next.js", "Firebase", "Cloudinary", "WhatsApp API"],
+    category: "marketplace",
+    color: "#10B981",
+    impact: "Local Artist Hub"
   },
   {
     id: 5,
     title: "LankaSupply",
     link: "https://lankasupply.vercel.app",
-    description:
-      "LankaSupply is a comprehensive e-commerce platform specializing in helping early-stage startups and small businesses find the right suppliers.",
+    description: "B2B supplier platform helping startups find manufacturers and scale production.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343113/supply_lpnabd.jpg",
-    tech: ["Next.js", "Firebase", "Tailwind", "Cloudinary", "Whatsapp API"],
-    category: "Web Development",
-    fullDescription:
-      "LankaSupply is a comprehensive e-commerce platform specializing in helping early-stage startups and small businesses find the right suppliers and manufacturers for their products.",
+    tech: ["Next.js", "Firebase", "Cloudinary", "WhatsApp API"],
+    category: "b2b",
+    color: "#FF3B6D",
+    impact: "Startup Supply Chain"
   },
   {
     id: 6,
     title: "Syndicate Solutions",
     link: "https://syndicatesolutions.vercel.app/",
-    description: "Innovative Digital Services Provider",
+    description: "Our own flagship site—custom software, AI automation, and digital services.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343124/synd_x7ssr5.jpg",
-    tech: ["Next.js", "Firebase", "Tailwind", "WhatsApp API"],
-    category: "Web Development",
-    fullDescription:
-      "Syndicate Solutions is a forward-thinking tech startup specializing in delivering cutting-edge digital services, including custom software development, AI-driven workflow automation, and comprehensive digital marketing solutions.",
+    tech: ["Next.js", "Firebase", "WhatsApp API", "Tailwind"],
+    category: "web",
+    color: "#6366F1",
+    impact: "Agency Platform"
   },
   {
     id: 7,
     title: "KQM Estate",
     link: "https://www.kqmestate.com/",
-    githubUrl: "https://github.com/yourusername/kqmestate",
-    description:
-      "Elegant real estate website with seamless user experience and advanced property search capabilities.",
+    description: "Modern real estate platform with advanced property search and virtual tours.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343093/kqm_wgu6kv.jpg",
-    tech: ["Next.js", "Resend", "Firebase", "Tailwind"],
-    category: "Web Development",
-    fullDescription:
-      "KQM Estate represents the pinnacle of modern real estate web applications, offering intuitive navigation, comprehensive property listings, and a sleek, responsive design that adapts to user needs.",
+    tech: ["Next.js", "Firebase", "Tailwind", "Resend"],
+    category: "realestate",
+    color: "#00D9FF",
+    impact: "Property Showcase"
   },
   {
     id: 8,
     title: "Sisira Auto Parts",
     link: "https://sisiraautoparts.vercel.app",
-    description:
-      "Sisira Auto Parts is a comprehensive e-commerce platform specializing in automotive parts and accessories.",
+    description: "Complete automotive e-commerce with inventory management and order tracking.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343102/sisira_m09s2u.png",
     tech: ["Next.js", "Firebase", "Cloudinary", "Tailwind"],
-    category: "Web Development",
-    fullDescription:
-      "Sisira Auto Parts is a comprehensive e-commerce platform specializing in automotive parts and accessories. The site features a user-friendly interface, allowing customers to easily browse and purchase a wide range of products.",
+    category: "ecommerce",
+    color: "#A78BFA",
+    impact: "Parts Inventory"
   },
 ];
 
-// Update categories to match the ones used in the portfolio items
 const categories = [
-  "All",
-  "Web Development",
-  "Marketing",
-  "Mobile Development",
-  "AI",
+  { id: "all", label: "All Work", count: portfolioItems.length },
+  { id: "web", label: "Web Apps", count: portfolioItems.filter(p => p.category === "web").length },
+  { id: "ecommerce", label: "E-Commerce", count: portfolioItems.filter(p => p.category === "ecommerce").length },
+  { id: "marketplace", label: "Marketplaces", count: portfolioItems.filter(p => p.category === "marketplace").length },
+  { id: "b2b", label: "B2B Platforms", count: portfolioItems.filter(p => p.category === "b2b").length },
+  { id: "realestate", label: "Real Estate", count: portfolioItems.filter(p => p.category === "realestate").length },
 ];
 
 const PortfolioSection = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [visibleItems, setVisibleItems] = useState(portfolioItems);
-  const portfolioRef = useRef(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [hoveredId, setHoveredId] = useState(null);
 
-  useEffect(() => {
-    // Filter items based on active category
-    const filtered =
-      activeCategory === "All"
-        ? portfolioItems
-        : portfolioItems.filter((item) => item.category === activeCategory);
-
-    // Animate new items in
-    setVisibleItems([]);
-    setTimeout(() => {
-      setVisibleItems(filtered);
-    }, 300);
-  }, [activeCategory]);
+  const filteredItems = activeCategory === "all" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <section
-      id="portfolio"
-      className="section bg-gradient-to-b from-white to-gray-50 relative py-24"
-      ref={portfolioRef}
-    >
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/4 w-1/3 h-1/3 bg-blue-50/50 rounded-full blur-3xl opacity-70 pulse-slow"></div>
-      <div className="absolute bottom-1/4 right-0 w-1/4 h-1/2 bg-purple-50/50 rounded-full blur-3xl opacity-70 floating"></div>
+    <section className="relative py-32 bg-black overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
-          <span className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-syndicate-blue/10 to-syndicate-purple/10 rounded-full border border-syndicate-blue/20 inline-block mb-4">
-            Our Work
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-syndicate-blue to-syndicate-purple mx-auto mb-6"></div>
-          <p className="text-lg text-syndicate-gray mb-8">
-            Explore our diverse portfolio of successful digital solutions that
-            deliver real business value
-          </p>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform hover-lift ${
-                  activeCategory === category
-                    ? "bg-gradient-to-r from-syndicate-blue to-syndicate-purple text-white shadow-lg shadow-syndicate-blue/20"
-                    : "bg-white text-syndicate-gray border border-gray-100 hover:border-gray-200 hover:bg-gray-50"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+        {/* Header */}
+        <div className="max-w-5xl mx-auto mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full">
+              <Code className="h-4 w-4 text-cyan-400" />
+              <span className="text-sm font-medium text-white/80">Real Projects. Real Results.</span>
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
           </div>
+
+          <h2 className="text-5xl md:text-7xl font-black mb-6 text-center leading-none">
+            <span className="block text-white mb-2">RECENT</span>
+            <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-yellow-400 bg-clip-text text-transparent">
+              WORK
+            </span>
+          </h2>
+
+          <p className="text-xl text-white/60 text-center max-w-3xl mx-auto font-light leading-relaxed">
+            Web platforms, e-commerce systems, marketplaces, and business tools we've built for agencies and direct clients. 
+            <span className="text-white font-normal"> Live projects. Proven results.</span>
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-4xl mx-auto">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`group relative px-6 py-3 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 ${
+                activeCategory === category.id
+                  ? "text-black"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              {activeCategory === category.id && (
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-xl"></div>
+              )}
+              {activeCategory !== category.id && (
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-300"></div>
+              )}
+              <span className="relative flex items-center gap-2">
+                {category.label}
+                <span className={`text-xs ${activeCategory === category.id ? "text-black/70" : "text-white/40"}`}>
+                  ({category.count})
+                </span>
+              </span>
+            </button>
+          ))}
         </div>
 
         {/* Portfolio Grid */}
-        <ProjectGrid
-          projects={portfolioItems}
-          category={activeCategory.toLowerCase()}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto mb-16">
+          {filteredItems.map((project, index) => (
+            <a
+              key={project.id}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              className="group block"
+              style={{
+                animation: `fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s both`
+              }}
+            >
+              <Card className="relative h-full border-0 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.06] transition-all duration-700 overflow-hidden rounded-2xl">
+                {/* Colored top accent */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-1 opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ backgroundColor: project.color }}
+                ></div>
 
-        {/* CTA Button */}
-        <div className="text-center animate-on-scroll">
-          <Button
-            asChild
-            className="bg-gradient-to-r from-syndicate-blue to-syndicate-purple hover:opacity-90 shadow-lg shadow-syndicate-blue/20 px-8 py-6 h-auto text-base font-medium"
-          >
-            <a href="#contact">
-              Start Your Project <ArrowRight size={18} className="ml-2" />
+                <CardContent className="p-0">
+                  {/* Image Container */}
+                  <div className="relative aspect-video overflow-hidden bg-white/5">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    
+                    {/* Impact badge */}
+                    <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg">
+                      <span className="text-xs font-bold text-white">{project.impact}</span>
+                    </div>
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        View Project
+                        <ArrowUpRight className="h-5 w-5" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Title */}
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 group-hover:bg-clip-text transition-all duration-300">
+                        {project.title}
+                      </h3>
+                      <ExternalLink 
+                        className="h-5 w-5 text-white/40 group-hover:text-white transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" 
+                      />
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-white/60 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 text-xs font-medium bg-white/5 border border-white/10 text-white/70 rounded-lg group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-300"
+                          style={{ transitionDelay: `${idx * 30}ms` }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+
+                {/* Bottom accent line */}
+                <div 
+                  className="h-px w-0 group-hover:w-full transition-all duration-700 delay-100"
+                  style={{ backgroundColor: project.color }}
+                ></div>
+              </Card>
             </a>
-          </Button>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="relative bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-10 overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+            
+            <div className="relative">
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Got a project in mind?
+              </h3>
+              <p className="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+                Let's build something together. Whether it's a complete platform or ongoing support—we deliver.
+              </p>
+              
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+              >
+                Start Your Project
+                <ChevronRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
