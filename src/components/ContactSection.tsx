@@ -142,7 +142,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 bg-black overflow-hidden">
+    <section className="relative py-32 bg-black overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]"></div>
@@ -176,7 +176,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8" id="contact">
           {/* Contact Info Cards */}
           <div className="lg:col-span-1 space-y-6">
             {contactInfo.map((info, index) => (
