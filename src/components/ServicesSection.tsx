@@ -12,6 +12,14 @@ const services = [
     action: "https://cal.com/syndicate-solutions/15min",
     features: ["Quick alignment", "Scope & next steps", "Budget guidance", "No obligation"]
   },
+    {
+    title: "Agency Partnership",
+    tagline: "Your technical co-pilot.",
+    description: "White-label engineering and flexible capacity to scale delivery without hiring — reliable, consistent execution that keeps your clients happy.",
+    icon: <Users className="h-8 w-8" />,
+    color: "#6366F1",
+    features: ["White-label delivery", "Scalable engineering teams", "Fast turnaround", "Quality-first process"]
+  },
   {
     title: "Web Development",
     tagline: "Fast sites that convert.",
@@ -44,22 +52,15 @@ const services = [
     color: "#10B981",
     features: ["Real-time dashboards", "Custom KPIs & reporting", "Data pipelines & ETL", "Predictive analytics"]
   },
-  {
-    title: "Digital Operations",
-    tagline: "Keep your stack healthy.",
-    description: "We run the day-to-day so you don’t have to — monitoring, incident response, performance tuning and security with SLAs you can trust.",
-    icon: <Zap className="h-8 w-8" />,
-    color: "#FF3B6D",
-    features: ["24/7 monitoring & alerts", "Performance tuning", "Security & patching", "SLA-backed support"]
-  },
-  {
-    title: "Agency Partnership",
-    tagline: "Your technical co-pilot.",
-    description: "White-label engineering and flexible capacity to scale delivery without hiring — reliable, consistent execution that keeps your clients happy.",
-    icon: <Users className="h-8 w-8" />,
-    color: "#6366F1",
-    features: ["White-label delivery", "Scalable engineering teams", "Fast turnaround", "Quality-first process"]
-  }
+  // {
+  //   title: "Digital Operations",
+  //   tagline: "Keep your stack healthy.",
+  //   description: "We run the day-to-day so you don’t have to — monitoring, incident response, performance tuning and security with SLAs you can trust.",
+  //   icon: <Zap className="h-8 w-8" />,
+  //   color: "#FF3B6D",
+  //   features: ["24/7 monitoring & alerts", "Performance tuning", "Security & patching", "SLA-backed support"]
+  // },
+
 ];
 
 const ServicesSection = () => {
