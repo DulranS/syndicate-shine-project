@@ -193,7 +193,7 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Floating accent cards */}
+      {/* Floating accent cards */}
               <div 
                 className="absolute -top-6 -right-6 w-28 h-28 rounded-2xl bg-blue-500/20 backdrop-blur-sm border border-blue-500/20"
                 style={{ animation: 'float 6s ease-in-out infinite' }}
@@ -207,7 +207,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(3deg); }
