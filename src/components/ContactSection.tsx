@@ -55,15 +55,15 @@ const ContactSection = () => {
         const message = encodeURIComponent(
           "Hello! I'm interested in discussing a project with Syndicate Solutions."
         );
-        window.open(`https://wa.me/94721516226?text=${message}`, "_blank");
+        window.open(`https://wa.me/94741143323?text=${message}`, "_blank");
       }
     },
     {
       icon: <Phone className="h-6 w-6" />,
       label: "Click here to call us directly",
-      value: "+94 72 151 6226",
+      value: "+94741143323",
       color: "#A78BFA",
-      action: "tel:+94721516226"
+      action: "tel:+94741143323"
     },
     {
       icon: <Mail className="h-6 w-6" />,
