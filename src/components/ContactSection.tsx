@@ -41,14 +41,14 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: <Clock className="h-6 w-6" />,
-      label: "Book a 15-min consultation (free)",
+      label: "Click here to book a 15-min consultation (free)",
       value: "Schedule a quick call",
       color: "#06B6D4",
       action: () => window.open("https://cal.com/syndicate-solutions/15min", "_blank"),
     },
     {
       icon: <MessageSquare className="h-6 w-6" />,
-      label: "WhatsApp",
+      label: "Click here to contact us on WhatsApp",
       value: "Message us for quick replies",
       color: "#10B981",
       action: () => {
@@ -60,14 +60,14 @@ const ContactSection = () => {
     },
     {
       icon: <Phone className="h-6 w-6" />,
-      label: "Call Us",
+      label: "Click here to call us directly",
       value: "+94 72 151 6226",
       color: "#A78BFA",
       action: "tel:+94721516226"
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      label: "Email",
+      label: "Click here to email us",
       value: "syndicatesoftwaresolutions@gmail.com",
       color: "#00D9FF",
       action: "mailto:syndicatesoftwaresolutions@gmail.com"
