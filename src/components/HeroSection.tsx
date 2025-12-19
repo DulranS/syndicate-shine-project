@@ -78,7 +78,7 @@ const HeroSection = () => {
             {/* CTAs */}
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#contact"
+                href="https://cal.com/syndicate-solutions/15min"
                 className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all group"
               >
                 <span>Book a free call</span>
