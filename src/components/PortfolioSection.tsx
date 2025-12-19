@@ -4,6 +4,20 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const portfolioItems = [
   {
+  id: 0,
+  title: "Mails2Leads (Automation Tool - Private use)",
+  link: "http://mails2leadsfvxx.vercel.app/",
+  description: "Automated outbound lead generation tool that scrapes fresh Google Maps leads and sends cost-efficient, rate-limited cold emails using Gmail APIs.",
+  image: "/mails2leads/mails2leads.png",
+  tech: ["Google Maps API", "Gmail API", "Cron Jobs", "Node.js"],
+  category: "automation",
+  color: "#3BB4FF",
+  impact: "Fully Automated Weekly Lead Generation"
+}
+,
+,
+
+  {
     id: 1,
     title: "SpeedLabs",
     link: "https://speedlabs.vercel.app/",
