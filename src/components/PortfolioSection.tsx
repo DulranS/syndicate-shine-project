@@ -15,10 +15,22 @@ const portfolioItems = [
   impact: "Fully Automated Weekly Lead Generation"
 }
 ,
-,
 
+{
+  id: 1,
+  title: "CashFlow (Personal Finance Platform)",
+  link: "https://cashflowvxx.vercel.app/",
+  description: "Lightweight yet powerful financial tracking platform built to analyze real business performance, profitability over time, loan coverage, budgets, and recurring revenue.",
+  image: "/cashflow/cashflow.png",
+  tech: ["Next.js", "Firebase", "Chart.js", "Tailwind CSS"],
+  category: "finance",
+  color: "#22C55E",
+  impact: "Data-Driven Business Profitability Insights"
+}
+
+,
   {
-    id: 1,
+    id: 2,
     title: "SpeedLabs",
     link: "https://speedlabs.vercel.app/",
     description: "High-performance tech platform with advanced optimization and user-centric design.",
@@ -29,7 +41,7 @@ const portfolioItems = [
     impact: "500+ Active Users"
   },
   {
-    id: 2,
+    id: 3,
     title: "SparkShift",
     link: "https://sparkshift-final.vercel.app/",
     description: "Professional SMMA platform with automated lead capture and seamless client onboarding.",
@@ -40,7 +52,7 @@ const portfolioItems = [
     impact: "3x Lead Conversion"
   },
   {
-    id: 3,
+    id: 4,
     title: "LankaMods",
     link: "https://lankamodslk.vercel.app/",
     description: "Premium automotive marketplace with real-time cart system and WhatsApp integration.",
@@ -51,7 +63,7 @@ const portfolioItems = [
     impact: "Custom Parts Catalog"
   },
   {
-    id: 4,
+    id: 5,
     title: "LankanArt",
     link: "https://lankaart.vercel.app",
     description: "Vibrant artist marketplace connecting Sri Lankan creators with buyers worldwide.",
@@ -62,7 +74,7 @@ const portfolioItems = [
     impact: "Local Artist Hub"
   },
   {
-    id: 5,
+    id: 6,
     title: "LankaSupply",
     link: "https://lankasupply.vercel.app",
     description: "B2B supplier platform helping startups find manufacturers and scale production.",
@@ -73,7 +85,7 @@ const portfolioItems = [
     impact: "Startup Supply Chain"
   },
   {
-    id: 6,
+    id: 7,
     title: "Syndicate Solutions",
     link: "https://syndicatesolutions.vercel.app/",
     description: "Our own flagship site—custom software, AI automation, and digital services.",
@@ -84,7 +96,7 @@ const portfolioItems = [
     impact: "Agency Platform"
   },
   {
-    id: 7,
+    id: 8,
     title: "KQM Estate",
     link: "https://www.kqmestate.com/",
     description: "Modern real estate platform with advanced property search and virtual tours.",
@@ -95,7 +107,7 @@ const portfolioItems = [
     impact: "Property Showcase"
   },
   {
-    id: 8,
+    id: 9,
     title: "Sisira Auto Parts",
     link: "https://sisiraautoparts.vercel.app",
     description: "Complete automotive e-commerce with inventory management and order tracking.",
