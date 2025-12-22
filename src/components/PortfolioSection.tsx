@@ -4,33 +4,40 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const portfolioItems = [
   {
-  id: 0,
-  title: "Mails2Leads (Automation Tool - Private use)",
-  link: "http://mails2leadsfvxx.vercel.app/",
-  description: "Automated outbound lead generation tool that scrapes fresh Google Maps leads and sends cost-efficient, rate-limited cold emails using Gmail APIs.",
-  image: "/mails2leads/mails2leads.png",
-  tech: ["Google Maps API", "Gmail API", "Cron Jobs", "Node.js"],
-  category: "automation",
-  color: "#3BB4FF",
-  impact: "Fully Automated Weekly Lead Generation"
-}
-,
-
-{
-  id: 1,
-  title: "CashFlow (Personal Finance Platform)",
-  link: "https://cashflowvxx.vercel.app/",
-  description: "Lightweight yet powerful financial tracking platform built to analyze real business performance, profitability over time, loan coverage, budgets, and recurring revenue.",
-  image: "/cashflow/cashflow.png",
-  tech: ["Next.js", "Firebase", "Chart.js", "Tailwind CSS"],
-  category: "finance",
-  color: "#22C55E",
-  impact: "Data-Driven Business Profitability Insights"
-}
-
-,
+    id: 0,
+    title: "Mails2Leads (Automation Tool - Private use)",
+    link: "http://mails2leadsfvxx.vercel.app/",
+    description: "Automated outbound lead generation tool that scrapes fresh Google Maps leads and sends cost-efficient, rate-limited cold emails using Gmail APIs.",
+    image: "/mails2leads/mails2leads.png",
+    tech: ["Google Maps API", "Gmail API", "Cron Jobs", "Node.js"],
+    category: "automation",
+    color: "#3BB4FF",
+    impact: "Fully Automated Weekly Lead Generation"
+  },
+  {
+    id: 1,
+    title: "CashFlow (Personal Finance Platform)",
+    link: "https://cashflowvxx.vercel.app/",
+    description: "Lightweight yet powerful financial tracking platform built to analyze real business performance, profitability over time, loan coverage, budgets, and recurring revenue.",
+    image: "/cashflow/cashflow.png",
+    tech: ["Next.js", "Firebase", "Chart.js", "Tailwind CSS"],
+    category: "finance",
+    color: "#22C55E",
+    impact: "Data-Driven Business Profitability Insights"
+  },
   {
     id: 2,
+    title: "OurSupply (Internal Supply Tracking System)",
+    link: "https://oursupply-test.vercel.app/",
+    description: "Internal supply-tracking system built to manage recurring orders, inventory levels, shipments, and cost synchronization with financial analysis tools.",
+    image: "/oursupply/oursupply.png",
+    tech: ["Next.js", "Supabase", "Supply Chain Management", "Business Process Automation"],
+    category: "automation",
+    color: "#16A34A",
+    impact: "Streamlined Inventory & Cost Control"
+  },
+  {
+    id: 3,
     title: "SpeedLabs",
     link: "https://speedlabs.vercel.app/",
     description: "High-performance tech platform with advanced optimization and user-centric design.",
@@ -41,7 +48,7 @@ const portfolioItems = [
     impact: "500+ Active Users"
   },
   {
-    id: 3,
+    id: 4,
     title: "SparkShift",
     link: "https://sparkshift-final.vercel.app/",
     description: "Professional SMMA platform with automated lead capture and seamless client onboarding.",
@@ -52,7 +59,7 @@ const portfolioItems = [
     impact: "3x Lead Conversion"
   },
   {
-    id: 4,
+    id: 5,
     title: "LankaMods",
     link: "https://lankamodslk.vercel.app/",
     description: "Premium automotive marketplace with real-time cart system and WhatsApp integration.",
@@ -63,7 +70,7 @@ const portfolioItems = [
     impact: "Custom Parts Catalog"
   },
   {
-    id: 5,
+    id: 6,
     title: "LankanArt",
     link: "https://lankaart.vercel.app",
     description: "Vibrant artist marketplace connecting Sri Lankan creators with buyers worldwide.",
@@ -74,7 +81,7 @@ const portfolioItems = [
     impact: "Local Artist Hub"
   },
   {
-    id: 6,
+    id: 7,
     title: "LankaSupply",
     link: "https://lankasupply.vercel.app",
     description: "B2B supplier platform helping startups find manufacturers and scale production.",
@@ -85,7 +92,7 @@ const portfolioItems = [
     impact: "Startup Supply Chain"
   },
   {
-    id: 7,
+    id: 8,
     title: "Syndicate Solutions",
     link: "https://syndicatesolutions.vercel.app/",
     description: "Our own flagship site—custom software, AI automation, and digital services.",
@@ -96,7 +103,7 @@ const portfolioItems = [
     impact: "Agency Platform"
   },
   {
-    id: 8,
+    id: 9,
     title: "KQM Estate",
     link: "https://www.kqmestate.com/",
     description: "Modern real estate platform with advanced property search and virtual tours.",
@@ -107,7 +114,7 @@ const portfolioItems = [
     impact: "Property Showcase"
   },
   {
-    id: 9,
+    id: 10,
     title: "Sisira Auto Parts",
     link: "https://sisiraautoparts.vercel.app",
     description: "Complete automotive e-commerce with inventory management and order tracking.",
@@ -116,8 +123,9 @@ const portfolioItems = [
     category: "ecommerce",
     color: "#A78BFA",
     impact: "Parts Inventory"
-  },
+  }
 ];
+
 
 const categories = [
   { id: "all", label: "All Work", count: portfolioItems.length },
