@@ -9,16 +9,16 @@ const HeroSection = () => {
   }, []);
 
   const services = [
-    { icon: Code2, label: 'Custom Web Apps' },
-    { icon: Layers, label: 'Enterprise Software' },
-    { icon: Cpu, label: 'AI Solutions' },
-    { icon: Zap, label: 'Process Automation' }
+    { icon: Code2, label: 'Web Dev' },
+    { icon: Layers, label: 'Software' },
+    { icon: Cpu, label: 'AI Automation' },
+    { icon: Zap, label: 'Digital Ops' }
   ];
 
   const stats = [
-    { value: '< 48h', label: 'First response' },
-    { value: '100%', label: 'Delivery rate' },
-    { value: '$0', label: 'Hidden fees' }
+    { value: '< 48h', label: 'Response time' },
+    { value: '100%', label: 'On-time delivery' },
+    { value: 'Global', label: 'Client base' }
   ];
 
   return (
@@ -48,14 +48,14 @@ const HeroSection = () => {
             {/* Headline */}
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-[1.05]">
-                Build solutions that
+                Your deadlines met.
                 <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  actually work.
+                  Your clients happy.
                 </span>
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
-                When your business needs software that handles real problems—customer portals, data automation, internal tools—you need a team that delivers working solutions, not endless revisions. We build systems that make your operations faster and your clients happier.
+                Stop explaining delays to your clients. We're the technical team agencies hire when they need work done right, on time, every time. Web apps, AI automation, custom software—delivered in weeks, not months.
               </p>
             </div>
 
@@ -81,7 +81,7 @@ const HeroSection = () => {
                 href="https://cal.com/syndicate-solutions/15min"
                 className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all group"
               >
-                <span>Talk to us about your project</span>
+                <span>Book a free call</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
               
@@ -89,7 +89,7 @@ const HeroSection = () => {
                 href="#services"
                 className="inline-flex items-center gap-2 bg-white/5 text-white border border-white/10 px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all"
               >
-                See what we build
+                View services
               </a>
             </div>
 
@@ -158,9 +158,9 @@ const HeroSection = () => {
                   {/* Task items */}
                   <div className="space-y-3">
                     {[
-                      { task: 'Client Portal Launch', progress: 85, status: 'going live' },
-                      { task: 'Payment Integration', progress: 60, status: 'in progress' },
-                      { task: 'Data Migration', progress: 100, status: 'complete' }
+                      { task: 'API Integration', progress: 85, status: 'deploying' },
+                      { task: 'UI Components', progress: 60, status: 'in progress' },
+                      { task: 'Testing', progress: 100, status: 'complete' }
                     ].map((item, i) => (
                       <div key={i} className="p-4 rounded-lg bg-white/5 border border-white/10">
                         <div className="flex items-center justify-between mb-2">
@@ -184,8 +184,8 @@ const HeroSection = () => {
                         <CheckCircle2 className="w-5 h-5 text-blue-400" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-white">Project milestone hit</div>
-                        <div className="text-xs text-gray-500">Ready for client review</div>
+                        <div className="text-sm font-medium text-white">Ready to deploy</div>
+                        <div className="text-xs text-gray-500">All checks passed</div>
                       </div>
                     </div>
                     <ArrowRight className="w-5 h-5 text-gray-500" />
@@ -193,7 +193,7 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Floating accent cards */}
+      {/* Floating accent cards */}
               <div 
                 className="absolute -top-6 -right-6 w-28 h-28 rounded-2xl bg-blue-500/20 backdrop-blur-sm border border-blue-500/20"
                 style={{ animation: 'float 6s ease-in-out infinite' }}
