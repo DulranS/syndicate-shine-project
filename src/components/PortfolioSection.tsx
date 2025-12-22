@@ -28,7 +28,7 @@ const portfolioItems = [
   {
     id: 2,
     title: "OurSupply (Internal Supply Tracking System)",
-    link: "https://oursupply-test.vercel.app/",
+    link: "https://oursupplyvxx.vercel.app/",
     description: "Internal supply-tracking system built to manage recurring orders, inventory levels, shipments, and cost synchronization with financial analysis tools.",
     image: "/oursupply/oursupply.png",
     tech: ["Next.js", "Supabase", "Supply Chain Management", "Business Process Automation"],
