@@ -61,7 +61,7 @@ const portfolioItems = [
   {
     id: 5,
     title: "LankaMods",
-    link: "https://lankamodslk.vercel.app/",
+    link: "https://lkmx.vercel.app/",
     description: "Premium automotive marketplace with real-time cart system and WhatsApp integration.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343099/lankamod-hero_dyhfk4.png",
     tech: ["Next.js", "Firebase", "WhatsApp API", "Tailwind"],
@@ -80,28 +80,28 @@ const portfolioItems = [
     color: "#10B981",
     impact: "Local Artist Hub"
   },
-  {
-    id: 7,
-    title: "LankaSupply",
-    link: "https://lankasupply.vercel.app",
-    description: "B2B supplier platform helping startups find manufacturers and scale production.",
-    image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343113/supply_lpnabd.jpg",
-    tech: ["Next.js", "Firebase", "Cloudinary", "WhatsApp API"],
-    category: "b2b",
-    color: "#FF3B6D",
-    impact: "Startup Supply Chain"
-  },
-  {
-    id: 8,
-    title: "Syndicate Solutions",
-    link: "https://syndicatesolutions.vercel.app/",
-    description: "Our own flagship site—custom software, AI automation, and digital services.",
-    image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343124/synd_x7ssr5.jpg",
-    tech: ["Next.js", "Firebase", "WhatsApp API", "Tailwind"],
-    category: "web",
-    color: "#6366F1",
-    impact: "Agency Platform"
-  },
+  // {
+  //   id: 7,
+  //   title: "LankaSupply",
+  //   link: "https://lankasupply.vercel.app",
+  //   description: "B2B supplier platform helping startups find manufacturers and scale production.",
+  //   image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343113/supply_lpnabd.jpg",
+  //   tech: ["Next.js", "Firebase", "Cloudinary", "WhatsApp API"],
+  //   category: "b2b",
+  //   color: "#FF3B6D",
+  //   impact: "Startup Supply Chain"
+  // },
+  // {
+  //   id: 8,
+  //   title: "Syndicate Solutions",
+  //   link: "https://syndicatesolutions.vercel.app/",
+  //   description: "Our own flagship site—custom software, AI automation, and digital services.",
+  //   image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343124/synd_x7ssr5.jpg",
+  //   tech: ["Next.js", "Firebase", "WhatsApp API", "Tailwind"],
+  //   category: "web",
+  //   color: "#6366F1",
+  //   impact: "Agency Platform"
+  // },
   {
     id: 9,
     title: "KQM Estate",
