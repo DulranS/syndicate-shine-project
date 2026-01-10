@@ -8,11 +8,11 @@ const services = [
     tagline: "Fast alignment",
     description: "Book a focused 15‑minute session to validate fit, clarify outcomes, and agree next steps — no salesy calls, just clear direction.",
     icon: <Clock className="h-8 w-8" />,
-    color: "#06B6D4",
+    color: "#3B82F6",
     action: "https://cal.com/syndicate-solutions/15min",
     features: ["Quick alignment", "Scope & next steps", "Budget guidance", "No obligation"]
   },
-    {
+  {
     title: "Agency Partnership",
     tagline: "Your technical co-pilot.",
     description: "White-label engineering and flexible capacity to scale delivery without hiring — reliable, consistent execution that keeps your clients happy.",
@@ -25,7 +25,7 @@ const services = [
     tagline: "Fast sites that convert.",
     description: "High-performance web experiences focused on speed and conversion — landing pages that sell, apps that scale, and clean code that stays fast.",
     icon: <Code className="h-8 w-8" />,
-    color: "#00D9FF",
+    color: "#3B82F6",
     features: ["High-converting landing pages", "React & Next.js", "Performance & SEO", "Server & API integration"]
   },
   {
@@ -33,7 +33,7 @@ const services = [
     tagline: "Built to fit your workflow.",
     description: "Custom tools that remove friction and unlock value — CRMs, dashboards, booking systems, and internal apps designed around how your team works.",
     icon: <Laptop className="h-8 w-8" />,
-    color: "#A78BFA",
+    color: "#8B5CF6",
     features: ["Bespoke CRMs & dashboards", "Business process automation", "SaaS & multi-platform apps", "Integrations & APIs"]
   },
   {
@@ -41,7 +41,7 @@ const services = [
     tagline: "Automate the repetitive.",
     description: "AI that handles repetitive tasks and surfaces insights — document processing, lead scoring, smart assistants, and intelligent workflows.",
     icon: <Sparkles className="h-8 w-8" />,
-    color: "#FFB800",
+    color: "#F59E0B",
     features: ["AI-driven workflows", "Conversational interfaces", "Document & data extraction", "Automated lead qualification"]
   },
   {
@@ -52,77 +52,55 @@ const services = [
     color: "#10B981",
     features: ["Real-time dashboards", "Custom KPIs & reporting", "Data pipelines & ETL", "Predictive analytics"]
   },
-  // {
-  //   title: "Digital Operations",
-  //   tagline: "Keep your stack healthy.",
-  //   description: "We run the day-to-day so you don’t have to — monitoring, incident response, performance tuning and security with SLAs you can trust.",
-  //   icon: <Zap className="h-8 w-8" />,
-  //   color: "#FF3B6D",
-  //   features: ["24/7 monitoring & alerts", "Performance tuning", "Security & patching", "SLA-backed support"]
-  // },
-
 ];
 
 const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden" id="services">
-      {/* Syndicate brand elements */}
+    <section className="relative py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden" id="services">
+      {/* Minimal background elements */}
       <div className="absolute inset-0">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]"></div>
-        
-        {/* Diagonal accent lines */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 left-0 w-1/3 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
-          <div className="absolute top-40 right-0 w-1/2 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
-          <div className="absolute bottom-40 left-0 w-2/3 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
-        </div>
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+          backgroundSize: '64px 64px'
+        }}></div>
 
-        {/* Ambient glows */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
+        {/* Subtle ambient glows */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-[140px]"></div>
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-violet-500/[0.05] rounded-full blur-[140px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header with brand identity */}
-        <div className="max-w-5xl mx-auto mb-24">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 max-w-[1400px]">
+        {/* Header */}
+        <div className="max-w-4xl mx-auto mb-20 text-center">
           {/* Location badge */}
-          <div className="flex items-center gap-3 mb-10">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
-            <div className="flex items-center gap-2 px-5 py-2.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full">
-              <Waves className="h-4 w-4 text-cyan-400" />
-              <span className="text-sm font-medium text-white/80">Colombo, Sri Lanka</span>
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="flex items-center gap-2.5 px-4 py-2.5 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-full">
+              <Waves className="h-4 w-4 text-blue-400" />
+              <span className="text-sm font-medium text-slate-300">Colombo, Sri Lanka</span>
+              <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
             </div>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
           </div>
           
           {/* Main headline */}
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black mb-8 leading-tight md:leading-none text-center">
-            <span className="block text-white mb-2 text-sm sm:text-base md:text-lg">ACCELERATE</span>
-            <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-yellow-400 bg-clip-text text-transparent animate-gradient text-2xl sm:text-4xl md:text-6xl">
-              GROWTH WITH TECH THAT DELIVERS
-            </span>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight text-white tracking-tight">
+            Accelerate growth with tech that delivers
           </h2>
 
-          {/* Brand tagline */}
-          <div className="flex items-center justify-center gap-4 mb-10">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-cyan-400"></div>
-            <p className="text-xl md:text-2xl text-white/60 font-light tracking-wide uppercase">
-              Reliable tech. Measurable outcomes.
-            </p>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-purple-400"></div>
-          </div>
+          {/* Tagline */}
+          <p className="text-xl text-slate-400 font-medium mb-8">
+            Reliable tech. Measurable outcomes.
+          </p>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed text-center max-w-4xl mx-auto font-light">
+          <p className="text-lg text-slate-400 leading-relaxed max-w-3xl mx-auto font-light">
             We design, build, and operate software that drives revenue and reduces risk. From conversion-first sites to AI workflows — deploy faster, iterate smarter, and scale with confidence.
           </p>
         </div>
 
-        {/* Services Grid with brand styling */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20">
           {services.map((service, index) => (
             <div
@@ -131,10 +109,9 @@ const ServicesSection = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               className="group relative"
               style={{
-                animation: `slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s both`
+                animation: `slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.08}s both`
               }}
             >
-              {/* Card with custom styling */}
               <Card
                 onClick={() => {
                   if (service.action) {
@@ -148,34 +125,30 @@ const ServicesSection = () => {
                 }}
                 role={service.action ? "button" : undefined}
                 tabIndex={service.action ? 0 : undefined}
-                className={`relative h-full border-0 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.06] transition-all duration-700 overflow-hidden rounded-2xl ${service.action ? 'cursor-pointer' : ''}`}
+                className={`relative h-full border-0 bg-slate-800/40 backdrop-blur-sm hover:bg-slate-800/60 transition-all duration-500 overflow-hidden rounded-xl border border-slate-700/40 hover:border-slate-600/60 ${service.action ? 'cursor-pointer' : ''}`}
               >
-                {/* Colored top border */}
+                {/* Subtle top accent */}
                 <div 
-                  className="absolute top-0 left-0 right-0 h-1 opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ backgroundColor: service.color }}
-                ></div>
-
-                {/* Side accent */}
-                <div 
-                  className="absolute top-0 left-0 w-1 h-0 group-hover:h-full transition-all duration-700 delay-100"
-                  style={{ backgroundColor: service.color }}
+                  className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ 
+                    background: `linear-gradient(90deg, transparent, ${service.color}, transparent)`
+                  }}
                 ></div>
                 
-                {/* Corner glow */}
+                {/* Corner glow on hover */}
                 <div 
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700"
+                  className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-[0.08] blur-3xl transition-all duration-700"
                   style={{ backgroundColor: service.color }}
                 ></div>
                 
                 <CardContent className="relative p-8">
-                  {/* Icon with brand color */}
+                  {/* Icon */}
                   <div className="mb-6">
                     <div 
-                      className="inline-flex w-20 h-20 rounded-2xl items-center justify-center transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700"
+                      className="inline-flex w-16 h-16 rounded-xl items-center justify-center transform group-hover:scale-105 transition-all duration-500 border"
                       style={{ 
-                        backgroundColor: `${service.color}15`,
-                        border: `1px solid ${service.color}30`
+                        backgroundColor: `${service.color}10`,
+                        borderColor: `${service.color}20`
                       }}
                     >
                       <div style={{ color: service.color }}>
@@ -185,36 +158,32 @@ const ServicesSection = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
+                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
                     {service.title}
                   </h3>
 
                   {/* Tagline */}
                   <p 
-                    className="text-sm font-semibold mb-4 tracking-wide uppercase"
+                    className="text-sm font-semibold mb-4"
                     style={{ color: service.color }}
                   >
                     {service.tagline}
                   </p>
 
                   {/* Description */}
-                  <p className="text-white/60 leading-relaxed mb-6 text-sm">
+                  <p className="text-slate-400 leading-relaxed mb-6 text-sm font-light">
                     {service.description}
                   </p>
 
                   {/* Divider */}
-                  <div 
-                    className="h-px w-16 mb-6 opacity-30 group-hover:w-full group-hover:opacity-60 transition-all duration-700"
-                    style={{ backgroundColor: service.color }}
-                  ></div>
+                  <div className="h-px bg-slate-700/40 mb-6"></div>
 
                   {/* Features */}
                   <div className="space-y-2.5">
                     {service.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-2.5 text-sm text-white/40 group-hover:text-white/70 transition-colors duration-500"
-                        style={{ transitionDelay: `${idx * 50}ms` }}
+                        className="flex items-center gap-2.5 text-sm text-slate-500 group-hover:text-slate-400 transition-colors duration-500"
                       >
                         <div 
                           className="w-1 h-1 rounded-full flex-shrink-0"
@@ -226,34 +195,34 @@ const ServicesSection = () => {
                   </div>
 
                   {/* Hover CTA */}
-                  <div className="mt-8 flex items-center gap-2 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <span style={{ color: service.color }}>EXPLORE</span>
-                    <ArrowUpRight className="h-4 w-4" style={{ color: service.color }} />
-                  </div>
+                  {service.action && (
+                    <div className="mt-8 flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      <span style={{ color: service.color }}>Learn more</span>
+                      <ArrowUpRight className="h-4 w-4" style={{ color: service.color }} />
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
           ))}
         </div>
 
-        {/* Branded CTA */}
-        <div className="max-w-5xl mx-auto">
-          <div className="relative bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-3xl p-12 md:p-16 overflow-hidden">
-            {/* Accent corner */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        {/* CTA Section */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-12 md:p-16 overflow-hidden">
+            {/* Subtle corner accent */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
             
-            <div className="relative">
-              <div className="flex items-center gap-3 mb-6 justify-center">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-400"></div>
-                <span className="text-sm font-bold text-cyan-400 tracking-widest uppercase">Let's Build</span>
-                <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-400"></div>
+            <div className="relative text-center">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+                <span className="text-sm font-semibold text-blue-400">Let's Build</span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6 text-center leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
                 Ready to get started?
               </h3>
               
-              <p className="text-xl text-white/60 mb-10 text-center max-w-2xl mx-auto">
+              <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto font-light">
                 No sales pitch. No BS. Just a real conversation about your project and how we can deliver results.
               </p>
               
@@ -262,13 +231,16 @@ const ServicesSection = () => {
                   href="https://cal.com/syndicate-solutions/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-600 text-black font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/20 hover:bg-blue-600 transition-all duration-300"
                 >
                   <Clock className="h-5 w-5" />
                   Book 15‑min Call
                 </a>
 
-                <a href="#case-studies" className="px-10 py-5 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white font-bold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                <a 
+                  href="#case-studies" 
+                  className="px-8 py-4 bg-slate-800/60 border border-slate-700/50 text-white font-semibold rounded-lg hover:bg-slate-800/80 hover:border-slate-600/60 transition-all duration-300"
+                >
                   See Case Studies
                 </a>
               </div>
@@ -281,26 +253,12 @@ const ServicesSection = () => {
         @keyframes slideIn {
           from {
             opacity: 0;
-            transform: translateY(40px) translateX(-20px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
-            transform: translateY(0) translateX(0);
+            transform: translateY(0);
           }
-        }
-
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 8s ease infinite;
         }
       `}</style>
     </section>

@@ -35,33 +35,33 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden bg-black">
-      {/* Animated background elements */}
+    <section id="about" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* Minimal background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/10 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-600/10 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full filter blur-[140px]"></div>
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-violet-500/[0.05] rounded-full filter blur-[140px]"></div>
       </div>
 
-      {/* Grid overlay */}
+      {/* Subtle grid overlay */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px'
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+        backgroundSize: '64px 64px'
       }}></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 max-w-[1400px]">
         {/* Header */}
         <div className="max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-slate-800/60 border border-slate-700/50 mb-6">
             <Sparkles size={16} className="text-blue-400" />
-            <span className="text-sm text-blue-300 font-medium">Who we are</span>
+            <span className="text-sm text-slate-300 font-medium">Who we are</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
             We're not an agency.
-            <span className="block mt-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block mt-2 text-blue-400">
               We're your execution team.
             </span>
           </h2>
-          <p className="text-xl text-gray-400 leading-relaxed">
+          <p className="text-xl text-slate-400 leading-relaxed font-light">
             Syndicate Solutions is a Colombo-based execution partner for agencies and businesses who need serious technical work done right. No fluff, no excuses—just reliable delivery on web dev, custom software, AI automation, and digital ops.
           </p>
         </div>
@@ -70,8 +70,8 @@ const AboutSection = () => {
           {/* Left: Story & Values */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Built for speed and reliability</h3>
-              <div className="space-y-4 text-gray-400 leading-relaxed">
+              <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">Built for speed and reliability</h3>
+              <div className="space-y-4 text-slate-400 leading-relaxed font-light">
                 <p>
                   Founded in 2024, we've worked with agencies and mid-sized businesses who needed one thing: a technical partner they could actually depend on.
                 </p>
@@ -85,49 +85,48 @@ const AboutSection = () => {
             </div>
 
             {/* What we actually do */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-8">
               <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
                 <Code2 size={20} className="text-blue-400" />
                 What we actually do
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {capabilities.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-gray-300">
+                  <div key={idx} className="flex items-center gap-2 text-slate-300">
                     <CheckCircle2 size={16} className="text-blue-400 flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
+                    <span className="text-sm font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-8">
-              <h4 className="text-xl font-bold text-white mb-3">Need reliable execution?</h4>
-              <p className="text-gray-400 mb-6">Let's talk about your next project. No sales calls, just straight talk about what's possible.</p>
-              <a href="#contact" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all group">
+            <div className="bg-gradient-to-br from-blue-500/10 to-violet-500/10 border border-blue-500/20 rounded-xl p-8">
+              <h4 className="text-xl font-bold text-white mb-3 tracking-tight">Need reliable execution?</h4>
+              <p className="text-slate-400 mb-6 font-light">Let's talk about your next project. No sales calls, just straight talk about what's possible.</p>
+              <a href="#contact" className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
                 <span>Start a conversation</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} />
               </a>
             </div>
           </div>
 
           {/* Right: Principles Grid */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-8">How we work</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 tracking-tight">How we work</h3>
             <div className="grid grid-cols-1 gap-6">
               {principles.map((principle, idx) => (
                 <div key={idx} className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                  <div className="relative bg-white/5 border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-300">
+                  <div className="relative bg-slate-800/40 border border-slate-700/40 hover:border-slate-600/60 hover:bg-slate-800/60 rounded-xl p-6 transition-all duration-300">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
                         <div className="text-blue-400">
                           {principle.icon}
                         </div>
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-white mb-2">{principle.title}</h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">{principle.description}</p>
+                        <p className="text-sm text-slate-400 leading-relaxed font-light">{principle.description}</p>
                       </div>
                     </div>
                   </div>
@@ -137,17 +136,17 @@ const AboutSection = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">2024</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">Founded</div>
+              <div className="bg-slate-800/40 border border-slate-700/40 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2">2024</div>
+                <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">Founded</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">24/7</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">Support</div>
+              <div className="bg-slate-800/40 border border-slate-700/40 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+                <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">Support</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">100%</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">Remote</div>
+              <div className="bg-slate-800/40 border border-slate-700/40 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
+                <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">Remote</div>
               </div>
             </div>
           </div>
@@ -155,21 +154,21 @@ const AboutSection = () => {
 
         {/* Bottom banner */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-2xl blur-xl"></div>
-          <div className="relative bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-white/10 rounded-2xl p-8 md:p-12">
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-blue-500/10 rounded-2xl blur-xl"></div>
+          <div className="relative bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
                 Stop searching. Start building.
               </h3>
-              <p className="text-gray-400 text-lg mb-6">
+              <p className="text-slate-400 text-lg mb-6 font-light">
                 If you're an agency or business tired of unreliable partners, overpromising freelancers, and missed deadlines—let's work together.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#contact" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all group">
+                <a href="#contact" className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
                   <span>Get in touch</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={18} />
                 </a>
-                <a href="#services" className="inline-flex items-center gap-2 bg-white/5 text-white border border-white/10 px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all">
+                <a href="#services" className="inline-flex items-center gap-2 bg-slate-800/60 text-white border border-slate-700/50 px-6 py-3 rounded-lg font-semibold hover:bg-slate-800/80 hover:border-slate-600/60 transition-all">
                   <span>View services</span>
                 </a>
               </div>

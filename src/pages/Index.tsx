@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -91,7 +90,7 @@ const Index = () => {
       <button
         id="scrollToTopBtn"
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-syndicate-blue to-syndicate-purple text-white p-3 rounded-full shadow-xl opacity-0 invisible transition-all duration-300 hover:shadow-2xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-syndicate-blue/50"
+        className="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 opacity-0 invisible transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500/50 z-50"
         aria-label="Scroll to top"
       >
         <ArrowUp className="h-5 w-5" />
