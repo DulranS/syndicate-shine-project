@@ -286,12 +286,12 @@ const PricingSection = () => {
                   </ul>
 
                   {/* CTA */}
-                  <button className="w-full group/btn relative px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300">
+                  <a href="https://cal.com/syndicate-solutions/15min" target="_blank" rel="noopener noreferrer" className="w-full group/btn relative px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300 block text-center">
                     <span className="flex items-center justify-center gap-2">
-                      Start Partnership
+                      Book a Call
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
