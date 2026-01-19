@@ -104,7 +104,7 @@ const portfolioItems = [
   },
   {
     id: 9,
-    title: "Sisira Auto Parts",
+    title: "Sisira Auto Parts (No Backend)",
     link: "https://sisiraautoparts.vercel.app",
     description: "Complete automotive e-commerce with inventory management and order tracking.",
     image: "https://res.cloudinary.com/dcbitedmr/image/upload/v1746343102/sisira_m09s2u.png",
