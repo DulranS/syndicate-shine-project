@@ -8,6 +8,7 @@ import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { ArrowUp, MessageCircle } from 'lucide-react';
+import PricingSection from '@/components/PricingBundle';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -96,6 +97,7 @@ const Index = () => {
         <ServicesSection />
         <AboutSection />
         <PortfolioSection />
+        <PricingSection/>
         <FAQSection />
         <ContactSection />
       </main>
