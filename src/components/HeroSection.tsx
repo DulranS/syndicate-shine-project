@@ -84,10 +84,10 @@ const HeroSection = () => {
               </a>
               
               <a 
-                href="#services"
+                href="#faqs"
                 className="inline-flex items-center justify-center gap-2 sm:gap-2.5 bg-slate-800/60 text-white border border-slate-700/50 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-slate-800/80 hover:border-slate-600/60 transition-all text-sm sm:text-base"
               >
-                View services
+                View FAQs
               </a>
             </div>
 

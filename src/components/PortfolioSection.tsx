@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ArrowUpRight, ExternalLink, Code, Zap, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -81,7 +81,18 @@ const portfolioItems = [
     impact: "Local Artist Hub"
   },
   {
-    id: 9,
+    id: 7,
+    title: "Beyond Solutions",
+    link: "https://beyondsolutions.lk/",
+    description: "Elite strategic marketing and event management platform serving top-tier corporate clients including major banks and Fortune 500 companies across Sri Lanka.",
+    image: "https://res.cloudinary.com/djtughtme/image/upload/v1768784361/490923676_122285575676139593_2088061797533241125_n_vvx0vl.jpg",
+    tech: ["Next.js", "Tailwind", "WhatsApp API", "Marketing Automation"],
+    category: "b2b",
+    color: "#DC2626",
+    impact: "300+ BTL Campaigns"
+  },
+  {
+    id: 8,
     title: "KQM Estate",
     link: "https://www.kqmestate.com/",
     description: "Modern real estate platform with advanced property search and virtual tours.",
@@ -92,7 +103,7 @@ const portfolioItems = [
     impact: "Property Showcase"
   },
   {
-    id: 10,
+    id: 9,
     title: "Sisira Auto Parts",
     link: "https://sisiraautoparts.vercel.app",
     description: "Complete automotive e-commerce with inventory management and order tracking.",
@@ -104,6 +115,32 @@ const portfolioItems = [
   }
 ];
 
+// Seeded random shuffle based on first letter of user's name or any string
+const seededShuffle = (array, seed) => {
+  const arr = [...array];
+  let currentIndex = arr.length;
+  let randomIndex;
+
+  // Convert seed to number
+  let seedNum = 0;
+  for (let i = 0; i < seed.length; i++) {
+    seedNum += seed.charCodeAt(i);
+  }
+
+  // Simple seeded random function
+  const random = () => {
+    seedNum = (seedNum * 9301 + 49297) % 233280;
+    return seedNum / 233280;
+  };
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(random() * currentIndex);
+    currentIndex--;
+    [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
+  }
+
+  return arr;
+};
 
 const categories = [
   { id: "all", label: "All Work", count: portfolioItems.length },
@@ -111,52 +148,54 @@ const categories = [
   { id: "ecommerce", label: "E-Commerce", count: portfolioItems.filter(p => p.category === "ecommerce").length },
   { id: "marketplace", label: "Marketplaces", count: portfolioItems.filter(p => p.category === "marketplace").length },
   { id: "b2b", label: "B2B Platforms", count: portfolioItems.filter(p => p.category === "b2b").length },
+  { id: "automation", label: "Automation", count: portfolioItems.filter(p => p.category === "automation").length },
+  { id: "finance", label: "Finance", count: portfolioItems.filter(p => p.category === "finance").length },
   { id: "realestate", label: "Real Estate", count: portfolioItems.filter(p => p.category === "realestate").length },
 ];
 
 const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [hoveredId, setHoveredId] = useState(null);
+  const [userSeed] = useState(() => {
+    // Generate random seed on mount (could be based on user input, session, etc.)
+    return Math.random().toString(36).substring(7);
+  });
+
+  // Shuffle portfolio items based on seed
+  const shuffledItems = useMemo(() => {
+    return seededShuffle(portfolioItems, userSeed);
+  }, [userSeed]);
 
   const filteredItems = activeCategory === "all" 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeCategory);
+    ? shuffledItems 
+    : shuffledItems.filter(item => item.category === activeCategory);
 
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden" id="portfolio">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-          backgroundSize: '64px 64px'
-        }}></div>
-        <div className="absolute top-1/4 right-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-blue-500/[0.06] rounded-full blur-[140px]"></div>
-        <div className="absolute bottom-1/4 left-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-violet-500/[0.05] rounded-full blur-[140px]"></div>
-      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 max-w-[1400px]">
+      <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="max-w-5xl mx-auto mb-16 sm:mb-20 text-center">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-            <div className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-full">
-              <Code className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400" />
-              <span className="text-xs sm:text-sm font-medium text-slate-300">Real Projects. Real Results.</span>
-            </div>
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
+            <Zap className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-semibold text-blue-400">Real Projects. Real Results.</span>
           </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-4">
-            <span className="block text-white mb-2">Recent</span>
-            <span className="block text-blue-400">Work</span>
+          
+          <h2 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+            Recent Work
           </h2>
-
-          <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto font-light leading-relaxed px-4">
-            Web platforms, e-commerce systems, marketplaces, and business tools we've built for agencies and direct clients. 
-            <span className="text-white font-normal"> Live projects. Proven results.</span>
+          
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            Web platforms, e-commerce systems, marketplaces, and business tools we've built for agencies and direct clients. Live projects. Proven results.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 max-w-4xl mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -168,23 +207,20 @@ const PortfolioSection = () => {
               }`}
             >
               {activeCategory === category.id && (
-                <div className="absolute inset-0 bg-blue-500 rounded-lg shadow-lg shadow-blue-500/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg" />
               )}
               {activeCategory !== category.id && (
-                <div className="absolute inset-0 bg-slate-800/40 backdrop-blur-sm border border-slate-700/40 rounded-lg group-hover:bg-slate-800/60 group-hover:border-slate-600/60 transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-slate-800/50 rounded-lg group-hover:bg-slate-800 transition-colors" />
               )}
-              <span className="relative flex items-center gap-1.5 sm:gap-2">
-                {category.label}
-                <span className={`text-[10px] sm:text-xs ${activeCategory === category.id ? "text-white/70" : "text-slate-500"}`}>
-                  ({category.count})
-                </span>
+              <span className="relative z-10">
+                {category.label} ({category.count})
               </span>
             </button>
           ))}
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 max-w-7xl mx-auto mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((project, index) => (
             <a
               key={project.id}
@@ -198,67 +234,58 @@ const PortfolioSection = () => {
                 animation: `fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.08}s both`
               }}
             >
-              <Card className="relative h-full border-0 bg-slate-800/40 backdrop-blur-sm hover:bg-slate-800/60 transition-all duration-500 overflow-hidden rounded-xl border border-slate-700/40 hover:border-slate-600/60">
+              <Card className="relative h-full bg-slate-900/50 border-slate-800 hover:border-slate-700 transition-all duration-300 overflow-hidden">
                 {/* Subtle top accent */}
                 <div 
-                  className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ 
-                    background: `linear-gradient(90deg, transparent, ${project.color}, transparent)`
-                  }}
-                ></div>
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{ background: project.color }}
+                />
 
-                <CardContent className="p-0">
-                  {/* Image Container */}
-                  <div className="relative aspect-video overflow-hidden bg-slate-900/60">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-                    
-                    {/* Impact badge */}
-                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-lg">
-                      <span className="text-[10px] sm:text-xs font-semibold text-white">{project.impact}</span>
-                    </div>
-
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-500 text-white font-semibold rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-lg shadow-blue-500/20 text-sm sm:text-base">
-                        View Project
-                        <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                      </div>
-                    </div>
+                {/* Image Container */}
+                <div className="relative h-48 overflow-hidden bg-slate-800">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Impact badge */}
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-sm border border-slate-700">
+                    <span className="text-xs font-semibold text-blue-400">{project.impact}</span>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-4 sm:p-5 lg:p-6">
-                    {/* Title */}
-                    <div className="flex items-start justify-between mb-2 sm:mb-3 gap-2">
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
-                        {project.title}
-                      </h3>
-                      <ExternalLink 
-                        className="h-4 w-4 sm:h-5 sm:w-5 text-slate-500 group-hover:text-white transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0" 
-                      />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                      <ExternalLink className="w-4 h-4 text-white" />
+                      <span className="text-sm font-semibold text-white">View Project</span>
                     </div>
+                  </div>
+                </div>
 
-                    {/* Description */}
-                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 font-light line-clamp-3">
-                      {project.description}
-                    </p>
+                {/* Content */}
+                <CardContent className="p-6 space-y-4">
+                  {/* Title */}
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">
+                      {project.title}
+                    </h3>
+                    <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0" />
+                  </div>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {project.tech.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-medium bg-slate-700/30 border border-slate-600/40 text-slate-400 rounded-md group-hover:bg-slate-700/50 group-hover:border-slate-600/60 group-hover:text-slate-300 transition-all duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Description */}
+                  <p className="text-sm text-slate-400 line-clamp-3">{project.description}</p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-1 rounded text-xs font-medium bg-slate-800/50 text-slate-300 border border-slate-700/50"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -267,27 +294,22 @@ const PortfolioSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <div className="relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-xl sm:rounded-2xl p-8 sm:p-10 overflow-hidden">
-            <div className="absolute top-0 right-0 w-36 sm:w-48 h-36 sm:h-48 bg-blue-500/5 rounded-full blur-3xl"></div>
-            
-            <div className="relative">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
-                Got a project in mind?
-              </h3>
-              <p className="text-base sm:text-lg text-slate-400 mb-6 sm:mb-8 max-w-2xl mx-auto font-light">
-                Let's build something together. Whether it's a complete platform or ongoing support—we deliver.
-              </p>
-              
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-8 sm:px-10 py-3.5 sm:py-5 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/20 text-sm sm:text-base"
-              >
-                Start Your Project
-                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-              </a>
-            </div>
+        <div className="mt-20 text-center space-y-6">
+          <div className="inline-block">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+              Got a project in mind?
+            </h3>
+            <p className="text-slate-400 max-w-xl mx-auto">
+              Let's build something together. Whether it's a complete platform or ongoing support—we deliver.
+            </p>
           </div>
+
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:-translate-y-0.5">
+            <span className="flex items-center gap-2">
+              Start Your Project
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </button>
         </div>
       </div>
 
@@ -295,7 +317,7 @@ const PortfolioSection = () => {
         @keyframes fadeInScale {
           from {
             opacity: 0;
-            transform: scale(0.96) translateY(20px);
+            transform: scale(0.95) translateY(10px);
           }
           to {
             opacity: 1;
@@ -303,7 +325,7 @@ const PortfolioSection = () => {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 
